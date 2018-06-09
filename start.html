@@ -7,6 +7,16 @@
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
     
+<script>
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+</script>
+    
 
 </head>
 <body class="w3-theme-d4 w3-padding-32">
@@ -34,6 +44,9 @@
 <script>
 var fileURL = "filedl/5MB.zip";
 var request = new XMLHttpRequest();
+var lspeed = getUrlVars()["s"];
+document.getElementById("currentspeed").innerHTML = (lspeed + "Mbit/s");
+    
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
 request.open('GET', fileURL + avoidCache, true);
 request.responseType = "application/zip";
@@ -54,8 +67,8 @@ request.onreadystatechange = function () {
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        if (speed > 500) {
-        window.location.replace("10MB.html?" + speed);
+        if (speed > 5) {
+        window.location.replace("start.html?s=" + speed);
         }
        
     }

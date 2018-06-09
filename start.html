@@ -44,8 +44,10 @@ function getUrlVars() {
 <script>
 var fileURL = "filedl/5MB.zip";
 var request = new XMLHttpRequest();
-var speed = "0 Mbits/s";
 var speed = getUrlVars()["s"];
+if (speed == null){
+    var speed = "0 Mbits/s";
+}
 document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
     
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;

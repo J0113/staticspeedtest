@@ -79,7 +79,8 @@ if (timestested == null){
 }
 
 if (timestested > "5") {
-    window.location.replace("result.html?s=" + getUrlVars()["s"];);
+    var finalspeed = getUrlVars()["s"];
+    window.location.replace("result.html?s=" + finalspeed);
 }    
     
 if (timestested == null) {

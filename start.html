@@ -90,7 +90,7 @@ if (timestested == null){
 if (timestested > 12) {
     var finalspeed = getUrlVars()["fs"];
     var filesizetested = getUrlVars()["s"];
-    window.location.replace("result.html?s=" + finalspeed + filesizetested);
+    window.location.replace("result.html?s=" + finalspeed + "&fs" + filesizetested);
 }    
     
 if (timestested == null) {
@@ -121,6 +121,7 @@ request.onreadystatechange = function () {
         var sizeInBits = downloadSize * 8;
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
+        var finalspeed = speed
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
         window.location.replace("start.html?s=" + speed + "&t=" + timestested + "&fs" + filesizetested);
        

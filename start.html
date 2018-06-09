@@ -42,8 +42,12 @@ function getUrlVars() {
 
     
 <script>
+var speed = getUrlVars()["s"];
+var timestested = getUrlVars()["t"];
+
 if (speed == null){
     var fileURL = "filedl/5MB.zip";
+    var speed = "0";
 }
 if (speed <= 5){
     var fileURL = "filedl/5MB.zip";
@@ -70,12 +74,18 @@ if (speed > 200){
     var fileURL = "https://jolle.tk/speedtest/500MB.zip";
 }
     
-var request = new XMLHttpRequest();
-var speed = getUrlVars()["s"];
-if (speed == null){
-    var speed = "0";
+if (timestested == null){
+    var timestested = "0";
 }
-document.getElementById("currentspeed").innerHTML = (speed + "Mbits/s");
+    
+if (timestested == null) {
+    var timestested = 0;
+} else {
+    var timestested = (timestested + 1);
+}
+    
+var request = new XMLHttpRequest();
+document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
     
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
 request.open('GET', fileURL + avoidCache, true);
@@ -97,8 +107,10 @@ request.onreadystatechange = function () {
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        if (speed > 5) {
-        window.location.replace("start.html?s=" + speed);
+        if (timestested < 4) {
+        window.location.replace("start.html?s=" + speed + "&t=" + timestested);
+        } else {
+            window.location.replace("result.html?s=" + speed);
         }
        
     }

@@ -1,0 +1,51 @@
+.w3-theme-l5 {color:#000 !important; background-color:#e6f3ff !important}
+.w3-theme-l4 {color:#000 !important; background-color:#acd6ff !important}
+.w3-theme-l3 {color:#fff !important; background-color:#5aacff !important}
+.w3-theme-l2 {color:#fff !important; background-color:#0783ff !important}
+.w3-theme-l1 {color:#fff !important; background-color:#005ab4 !important}
+.w3-theme-d1 {color:#fff !important; background-color:#002c57 !important}
+.w3-theme-d2 {color:#fff !important; background-color:#00274e !important}
+.w3-theme-d3 {color:#fff !important; background-color:#002244 !important}
+.w3-theme-d4 {color:#fff !important; background-color:#001d3a !important}
+.w3-theme-d5 {color:#fff !important; background-color:#001830 !important}
+
+.w3-theme-light {color:#000 !important; background-color:#e6f3ff !important}
+.w3-theme-dark {color:#fff !important; background-color:#001830 !important}
+.w3-theme-action {color:#fff !important; background-color:#001830 !important}
+
+.w3-theme {color:#fff !important; background-color:#002f5f !important}
+.w3-text-theme {color:#002f5f !important}
+.w3-border-theme {border-color:#002f5f !important}
+
+.w3-hover-theme:hover {color:#fff !important; background-color:#002f5f !important}
+.w3-hover-text-theme:hover {color:#002f5f !important}
+.w3-hover-border-theme:hover {border-color:#002f5f !important}
+
+body {font-family: 'Lato', serif; !important}
+
+.svgicon {
+  display: block;
+  text-indent: 40px;
+  width: 35px;
+  height: 35px;
+  background: url(icon.svg);
+  background-size: 35px 35px;
+}
+
+.gobtn {
+border:        5px solid #ffffff;
+border-radius: 1000px;
+width:         200px;
+height:        200px;
+display:       inline-block;
+font:          normal 700 50px/200px "Lato", serif;
+text-align:    center;
+text-shadow:   none;
+}
+
+iframe.hide {
+    width:0;
+    height:0;
+    border:0;
+    border:none"
+}

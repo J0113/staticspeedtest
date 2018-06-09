@@ -1,33 +1,113 @@
-<h1 id="status">Starting...</h1>
-<script>
-var fileURL = "filedl/20MB.zip";
-
-var request = new XMLHttpRequest();
-var avoidCache = "?avoidcache=" + (new Date()).getTime();;
-request.open('GET', fileURL + avoidCache, true);
-request.responseType = "application/zip";
-var startTime = (new Date()).getTime();
-var endTime = startTime;
-request.onreadystatechange = function () {
-    if (request.readyState == 2)
-    {
-        //ready state 2 is when the request is sent
-        startTime = (new Date().getTime());
+<!DOCTYPE html>
+<html>
+<head>
+<title>DNSpeed - World's first DNS Speed test!</title>
+    
+<script src="jquery-1.8.3.min.js"></script>
+<script src="radialIndicator.min.js"></script>
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    
+    
+<script type="text/javascript">
+    function startdnscheck(){ document.getElementById('dnscheckframe').src = "...";
     }
-    if (request.readyState == 4)
-    {
-        endTime = (new Date()).getTime();
-        var downloadSize = request.responseText.length;
-        var time = (endTime - startTime) / 1000;
-        var sizeInBits = downloadSize * 8;
-        var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
-        console.log(downloadSize, time, speed);
-        document.getElementById("status").innerHTML = speed;
-       
-    }
-}
+    function frameload(){
+          var dnssites = ['https://www.google.com/search?q=1234',
+                 'https://www.google.com/search?q=1235',
+                 'https://www.google.com/search?q=1236']
+    
+    document.getElementById('dnscheckframe').src = dnssites[Math.floor(Math.random() * dnssites.length)];
+      alert("iframe loaded")
 
-request.send();
+      }
 </script>
 
+</head>
+<body class="w3-theme-d4 w3-padding-32">
 
+    
+<div class="w3-container w3-col" style="width:10%"></div>    
+
+<div class="w3-container w3-col w3-theme-d5 w3-padding w3-round-xlarge" style="width:80%; height: 92vh;">
+    
+<span class="svgicon w3-xlarge">DNSpeed</span>
+
+    <div class="w3-display-container w3-display-middle w3-padding-64" id="bar">
+    <btn id="startButton" class="gobtn">GO</btn>
+    </div>
+    
+    <p><span id="time1">0</span> seconds</p>
+    <p>Current time: <span id="hour">0</span> : <span id="min">0</span> : <span id="sec">0</span></p>
+
+<br><br>
+<input id="startButton" type="button" value="Start">
+<input id="pauseButton" type="button" value="Pause">
+<input id="resumeButton" type="button" value="Resume">
+    
+<div>
+    <iframe class="hide" id="dnscheckframe" onload="frameload()"></iframe>
+</div>
+    
+    
+</div>    
+
+<div class="w3-container w3-col" style="width:10%"></div>     
+    
+    
+    
+<script>
+var Clock = {
+  totalSeconds: 0,
+
+  start: function () {
+    var self = this;
+
+    this.interval = setInterval(function () {
+      self.totalSeconds += 1;
+        
+      $("#hour").text(Math.floor(self.totalSeconds / 3600));
+      $("#min").text(Math.floor(self.totalSeconds / 60 % 60));
+      $("#sec").text(parseInt(self.totalSeconds % 60));
+        
+      $("#time1").text(parseInt(self.totalSeconds));
+      $("#startButton").remove();
+      $("#bar").html("");
+      
+      
+      var radialObj = radialIndicator('#bar', {
+    radius: 90,
+    barWidth: 6,
+    barColor: '#ffffff',
+    barBgColor : '#001830',
+    initValue : self.totalSeconds
+});
+        
+    }, 1000);
+  },
+
+  pause: function () {
+    clearInterval(this.interval);
+    delete this.interval;
+  },
+
+  resume: function () {
+    if (!this.interval) this.start();
+  }
+};
+
+$('#startButton').click(function () {
+    Clock.start();
+    dnsteststart();
+    startdnscheck();
+    
+        
+});
+$('#pauseButton').click(function () { Clock.pause(); });
+$('#resumeButton').click(function () { Clock.resume(); });
+
+</script>
+
+</body>
+</html>

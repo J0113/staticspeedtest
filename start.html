@@ -75,10 +75,10 @@ if (speed > 200){
 }
     
 if (timestested == null){
-    var timestested = "0";
+    var timestested = 0;
 }
 
-if (timestested > "5") {
+if (timestested > 5) {
     var finalspeed = getUrlVars()["s"];
     window.location.replace("result.html?s=" + finalspeed);
 }    

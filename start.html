@@ -48,7 +48,7 @@ var speed = getUrlVars()["s"];
 if (speed == null){
     var speed = "0 Mbits/s";
 }
-document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
+document.getElementById("currentspeed").innerHTML = (speed);
     
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
 request.open('GET', fileURL + avoidCache, true);

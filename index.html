@@ -4,7 +4,7 @@ var fileURL = "sampleimg/15.jpg";
 var request = new XMLHttpRequest();
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
 request.open('GET', fileURL + avoidCache, true);
-request.responseType = "image/jpeg";
+request.responseType = "image/jpg";
 var startTime = (new Date()).getTime();
 var endTime = startTime;
 request.onreadystatechange = function () {

@@ -20,7 +20,7 @@
 
     <div class="w3-display-container w3-display-middle w3-padding-64" id="bar">
     <div class="loaderwheel"></div>
-        <p class="w3-xxlarge w3-center" id="currentspeed">0 Mbit/s</p>
+        <p class="w3-xxlarge w3-center" id="currentspeed"> Mbit/s</p>
     </div>
 
 <br><br>
@@ -53,8 +53,8 @@ request.onreadystatechange = function () {
         var sizeInBits = downloadSize * 8;
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
-        document.getElementById("currentspeed").innerHTML = speed;
-        if (speed > 5) {
+        document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
+        if (speed > 500) {
         window.location.replace("10MB.html?" + speed);
         }
        

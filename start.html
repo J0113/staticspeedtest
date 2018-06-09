@@ -55,17 +55,10 @@ request.onreadystatechange = function () {
         console.log(downloadSize, time, speed);
         document.getElementById("currentspeed").innerHTML = speed;
         if (speed > 5) {
-        tenmb();
-        }
-       
-    }
-}
-request.send();
-    
-</script>
-<script>    
-    
-function tenmb() {   
+        
+            
+            
+            
 var fileURL = "filedl/10MB.zip";
 var request = new XMLHttpRequest();
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
@@ -92,9 +85,18 @@ request.onreadystatechange = function () {
        
     }
 }
-request.send(); }
+request.send();
+            
+            
+            
+            
+        }
+       
+    }
+}
+request.send();
     
-</script>
+    </script>
 
 </body>
 </html>

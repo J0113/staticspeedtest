@@ -1,6 +1,6 @@
 <h1 id="status"> </h1>
 <script>
-var fileURL = "http://speedtest.tele2.net/20MB.zip";
+var fileURL = "filedl/5MB.zip";
 
 var request = new XMLHttpRequest();
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
@@ -22,9 +22,9 @@ request.onreadystatechange = function () {
         var sizeInBits = downloadSize * 8;
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
-        document.getElementById("status").innerHTML = speed;
-        if (speed > 1000) {
-        window.location.replace("10.html")
+        document.getElementById("currentspeed").innerHTML = speed;
+        if (speed > 5) {
+        tenmb();
         }
        
     }

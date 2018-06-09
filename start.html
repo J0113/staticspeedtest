@@ -42,13 +42,40 @@ function getUrlVars() {
 
     
 <script>
-var fileURL = "filedl/5MB.zip";
+if (speed == null){
+    var fileURL = "filedl/5MB.zip";
+}
+if (speed <= 5){
+    var fileURL = "filedl/5MB.zip";
+}
+if (speed > 5){
+    var fileURL = "filedl/10MB.zip";
+}
+if (speed > 10){
+    var fileURL = "filedl/20MB.zip";
+}
+if (speed > 20){
+    var fileURL = "https://jolle.tk/speedtest/50MB.zip";
+}
+if (speed > 50){
+    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
+    var fileURL = "https://jolle.tk/speedtest/100MB.zip";
+}
+if (speed > 100){
+    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
+    var fileURL = "https://jolle.tk/speedtest/200MB.zip";
+}
+if (speed > 200){
+    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
+    var fileURL = "https://jolle.tk/speedtest/500MB.zip";
+}
+    
 var request = new XMLHttpRequest();
 var speed = getUrlVars()["s"];
 if (speed == null){
-    var speed = "0 Mbits/s";
+    var speed = "0";
 }
-document.getElementById("currentspeed").innerHTML = (speed);
+document.getElementById("currentspeed").innerHTML = (speed + "Mbits/s");
     
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
 request.open('GET', fileURL + avoidCache, true);

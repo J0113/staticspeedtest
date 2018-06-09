@@ -123,7 +123,7 @@ request.onreadystatechange = function () {
         console.log(downloadSize, time, speed);
         var finalspeed = speed
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        window.location.replace("start.html?s=" + speed + "&t=" + timestested + "&fs" + filesizetested);
+        window.location.replace("start.html?s=" + speed + "&t=" + timestested + "&fs=" + filesizetested);
        
     }
 }

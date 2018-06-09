@@ -29,14 +29,9 @@
 </div>    
 
 <div class="w3-container w3-col" style="width:10%"></div>   
-    
-<div st-fivemb="5MB.html"></div>
-<div st-tenmb="10MB.html"></div>
-    
-    
+
     
 <script>
-function fivemb() {   
 var fileURL = "filedl/5MB.zip";
 var request = new XMLHttpRequest();
 var avoidCache = "?avoidcache=" + (new Date()).getTime();;
@@ -66,7 +61,6 @@ request.onreadystatechange = function () {
     }
 }
 request.send();
-}
     
     
     

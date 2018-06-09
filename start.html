@@ -77,6 +77,10 @@ if (speed > 200){
 if (timestested == null){
     var timestested = "0";
 }
+
+if (timestested > 5) {
+    window.location.replace("result.html?s=" + speed);
+}    
     
 if (timestested == null) {
     var timestested = 0;
@@ -107,11 +111,7 @@ request.onreadystatechange = function () {
         var speed = ((sizeInBits / time) / (1024 * 1024)).toFixed(2);
         console.log(downloadSize, time, speed);
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        if (timestested < 4) {
         window.location.replace("start.html?s=" + speed + "&t=" + timestested);
-        } else {
-            window.location.replace("result.html?s=" + speed);
-        }
        
     }
 }

@@ -44,61 +44,24 @@ function getUrlVars() {
 <script>
 var speed = getUrlVars()["s"];
 var timestested = getUrlVars()["t"];
+var one = 1;
 
 if (speed == null){
-    var fileURL = "filedl/5MB.zip";
     var speed = "0";
-    var filesizetested = "5";
 }
-if (speed <= "5"){
-    var fileURL = "filedl/5MB.zip";
-    var filesizetested = "5";
-}
-if (speed > "5"){
-    var fileURL = "filedl/10MB.zip";
-    var filesizetested = "10";
-}
-if (speed > "10"){
-    var fileURL = "filedl/20MB.zip";
-    var filesizetested = "20";
-}
-if (speed > "20"){
-    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
-    var fileURL = "https://jolle.tk/speedtest/50MB.zip";
-    var filesizetested = "50";
-}
-if (speed > "50"){
-    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
-    var fileURL = "https://jolle.tk/speedtest/100MB.zip";
-    var filesizetested = "100";
-}
-if (speed > "100"){
-    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
-    var fileURL = "https://jolle.tk/speedtest/200MB.zip";
-    var filesizetested = "200";
-}
-if (speed > "200"){
-    // Because github does not accept file over 30MB we will be using @J0113's HTTPS speedtest file's
-    var fileURL = "https://jolle.tk/speedtest/500MB.zip";
-    var filesizetested = "500";
-}
-    
-if (timestested == null){
-    var timestested = 0;
-}
-
-if (timestested > 12) {
-    var finalspeed = getUrlVars()["s"];
-    var filesizetested = getUrlVars()["fs"];
-    window.location.replace("result.html?s=" + finalspeed + "&fs=" + filesizetested);
-}    
     
 if (timestested == null) {
-    var timestested = 0;
+    var timestested = one;
 } else {
-    var timestested = (timestested + 1);
+    var timestested = (timestested + one);
 }
+
+if (timestested > 4) {
+    window.location.replace("result.html?s=" + speed
+}    
+
     
+var fileURL = "filedl/20MB.zip";    
 var request = new XMLHttpRequest();
 document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
     
@@ -123,7 +86,7 @@ request.onreadystatechange = function () {
         console.log(downloadSize, time, speed);
         var finalspeed = speed
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        window.location.replace("start.html?s=" + speed + "&t=" + timestested + "&fs=" + filesizetested);
+        window.location.replace("start.html?s=" + speed + "&t=" + timestested);
        
     }
 }

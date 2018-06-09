@@ -1,28 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DNSpeed - World's first DNS Speed test!</title>
-    
-<script src="jquery-1.8.3.min.js"></script>
-<script src="radialIndicator.min.js"></script>
+<title>Download Speed Test - Pure JavaScript download speed test!</title>
+
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
-    
-    
-<script type="text/javascript">
-    function startdnscheck(){ document.getElementById('dnscheckframe').src = "...";
-    }
-    function frameload(){
-          var dnssites = ['https://www.google.com/search?q=1234',
-                 'https://www.google.com/search?q=1235',
-                 'https://www.google.com/search?q=1236']
-    
-    document.getElementById('dnscheckframe').src = dnssites[Math.floor(Math.random() * dnssites.length)];
-      alert("iframe loaded")
-
-      }
-</script>
 
 </head>
 <body class="w3-theme-d4 w3-padding-32">
@@ -32,23 +15,13 @@
 
 <div class="w3-container w3-col w3-theme-d5 w3-padding w3-round-xlarge" style="width:80%; height: 92vh;">
     
-<span class="svgicon w3-xlarge">DNSpeed</span>
+<span class="svgicon w3-xlarge">JSpeedtest - Open Source pure JavaScript speed test!</span>
 
     <div class="w3-display-container w3-display-middle w3-padding-64" id="bar">
     <btn id="startButton" class="gobtn">GO</btn>
     </div>
-    
-    <p><span id="time1">0</span> seconds</p>
-    <p>Current time: <span id="hour">0</span> : <span id="min">0</span> : <span id="sec">0</span></p>
 
 <br><br>
-<input id="startButton" type="button" value="Start">
-<input id="pauseButton" type="button" value="Pause">
-<input id="resumeButton" type="button" value="Resume">
-    
-<div>
-    <iframe class="hide" id="dnscheckframe" onload="frameload()"></iframe>
-</div>
     
     
 </div>    
@@ -58,56 +31,10 @@
     
     
 <script>
-var Clock = {
-  totalSeconds: 0,
-
-  start: function () {
-    var self = this;
-
-    this.interval = setInterval(function () {
-      self.totalSeconds += 1;
-        
-      $("#hour").text(Math.floor(self.totalSeconds / 3600));
-      $("#min").text(Math.floor(self.totalSeconds / 60 % 60));
-      $("#sec").text(parseInt(self.totalSeconds % 60));
-        
-      $("#time1").text(parseInt(self.totalSeconds));
-      $("#startButton").remove();
-      $("#bar").html("");
-      
-      
-      var radialObj = radialIndicator('#bar', {
-    radius: 90,
-    barWidth: 6,
-    barColor: '#ffffff',
-    barBgColor : '#001830',
-    initValue : self.totalSeconds
-});
-        
-    }, 1000);
-  },
-
-  pause: function () {
-    clearInterval(this.interval);
-    delete this.interval;
-  },
-
-  resume: function () {
-    if (!this.interval) this.start();
-  }
+document.getElementById('startButton').onclick = function() {
+   alert("Starting now...");
 };
-
-$('#startButton').click(function () {
-    Clock.start();
-    dnsteststart();
-    startdnscheck();
-    
-        
-});
-$('#pauseButton').click(function () { Clock.pause(); });
-$('#resumeButton').click(function () { Clock.resume(); });
-
-</script>
+    </script>
 
 </body>
 </html>

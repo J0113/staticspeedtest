@@ -44,21 +44,6 @@ function getUrlVars() {
 <script>
 var speed = getUrlVars()["s"];
 var timestested = getUrlVars()["t"];
-var one = 1;
-
-if (speed == null){
-    var speed = "0";
-}
-    
-if (timestested == null) {
-    var timestested = one;
-} else {
-    var timestested = (timestested + one);
-}
-
-if (timestested > 4) {
-    window.location.replace("result.html?s=" + speed);
-}    
 
     
 var fileURL = "filedl/20MB.zip";    
@@ -86,7 +71,7 @@ request.onreadystatechange = function () {
         console.log(downloadSize, time, speed);
         var finalspeed = speed
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        window.location.replace("start.html?s=" + speed + "&t=" + timestested);
+        window.location.replace("start.html?s=" + speed);
        
     }
 }

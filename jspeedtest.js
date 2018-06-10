@@ -53,7 +53,7 @@ request.onreadystatechange = function () {
         var speed = ((sizeInBits / time) / (1000 * 1000)).toFixed(2); /// Last calculation, Mbit/s
         console.log(downloadSize, time, speed);  /// Some information will be logged for developers in the console
         document.getElementById(currentspeed).innerHTML = (speed + " Mbit/s"); /// Display the tested speed on the page
-        function speedtestDone(speed);  /// If you want to do something after the speedtest is done make a "speedtestDone" fuction in your HTMl page
+        function speedtestDone();  /// If you want to do something after the speedtest is done make a "speedtestDone" fuction in your HTMl page
        
     }
 }

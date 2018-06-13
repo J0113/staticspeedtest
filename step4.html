@@ -73,7 +73,7 @@ request.onreadystatechange = function () {
         console.log(downloadSize, time, speed);
         var finalspeed = speed
         document.getElementById("currentspeed").innerHTML = (speed + "Mbit/s");
-        if (speed < 175){
+        if (speed < 200){
             window.location.replace("result.html?s=" + speed);
         } else {
             window.location.replace("step5.html?s=" + speed);

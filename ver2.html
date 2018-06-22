@@ -10,13 +10,7 @@
 <script>
 var currentspeed = "currentspeed";
 var fileURL = "filedl/20MB.zip";
-function speedtestDone(dlspeed) {
-    if (speed < 15000){
-        window.location.replace("result.html?s=" + dlspeed);
-    } else {
-        window.location.replace("step2.html?s=" + dlspeed);
-    }
-}
+function speedtestDone(dlspeed) { if (speed < 15000){ window.location.replace("result.html?s=" + dlspeed); } else { window.location.replace("step2.html?s=" + dlspeed); } }
 </script>
 
 </head>
